@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutube no comments</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1>Rutube No Comments</h1>
+    </div>
+    
+    <div class="toggle-container">
+      <label class="toggle-label" for="toggle">
+        <div class="toggle-info">
+          <span class="toggle-text">Скрывать комментарии</span>
+          <span class="toggle-description">Блоки комментариев будут скрыты на всех страницах Rutube</span>
+        </div>
+        <div class="toggle-switch">
+          <input type="checkbox" id="toggle" class="toggle-input">
+          <span class="toggle-slider"></span>
+        </div>
+      </label>
+    </div>
+    
+    <div class="status-container">
+      <div class="status-indicator" id="statusIndicator"></div>
+      <p class="status-text" id="status">Включено</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

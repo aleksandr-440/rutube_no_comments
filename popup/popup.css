@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Rutube brand colors */
+  --rutube-red: #FF0000;
+  --rutube-red-dark: #E60000;
+  --rutube-red-light: #FF3333;
+  
+  /* Light theme */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --text-primary: #1A1A1A;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border-color: #E0E0E0;
+  --shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Toggle colors */
+  --toggle-bg-off: #CCCCCC;
+  --toggle-bg-on: var(--rutube-red);
+  --toggle-slider: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme */
+    --bg-primary: #1A1A1A;
+    --bg-secondary: #252525;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --text-tertiary: #808080;
+    --border-color: #333333;
+    --shadow: rgba(0, 0, 0, 0.3);
+    
+    --toggle-bg-off: #404040;
+    --toggle-bg-on: var(--rutube-red);
+    --toggle-slider: #FFFFFF;
+  }
+}
+
+body {
+  width: 320px;
+  min-height: 180px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--rutube-red) 0%, var(--rutube-red-dark) 100%);
+  border-radius: 10px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* Toggle Container */
+.toggle-container {
+  margin-bottom: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  gap: 16px;
+}
+
+.toggle-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.toggle-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.toggle-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-bg-off);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 28px;
+  box-shadow: inset 0 2px 4px var(--shadow);
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--toggle-slider);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--toggle-bg-on);
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+.toggle-input:focus + .toggle-slider {
+  outline: 2px solid var(--rutube-red);
+  outline-offset: 2px;
+}
+
+.toggle-input:hover + .toggle-slider {
+  box-shadow: inset 0 2px 4px var(--shadow), 0 0 0 3px rgba(255, 0, 0, 0.05);
+}
+
+.toggle-input:checked:hover + .toggle-slider {
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.15);
+}
+
+/* Status Container */
+.status-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-tertiary);
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.status-indicator.active {
+  background-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+.status-indicator.inactive {
+  background-color: var(--rutube-red);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
+
+.status-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.status-text.enabled {
+  color: #4CAF50;
+}
+
+.status-text.disabled {
+  color: var(--rutube-red);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

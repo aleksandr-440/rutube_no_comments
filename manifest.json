@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Rutube no comments",
+  "version": "1.0.0",
+  "description": "Скрывает блоки комментариев на rutube.ru",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://rutube.ru/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://rutube.ru/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon.svg",
+      "32": "icons/icon.svg",
+      "48": "icons/icon.svg",
+      "128": "icons/icon.svg"
+    },
+    "default_title": "Rutube no comments"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "RutubeNoComments@alexkoshak",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "icons": {
+    "16": "icons/icon.svg",
+    "32": "icons/icon.svg",
+    "48": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  }
+}
