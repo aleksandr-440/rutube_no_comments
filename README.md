@@ -1,16 +1,12 @@
 # Rutube No Comments
 
-Расширение для Firefox **(TODO: и Chrome)**, которое скрывает блоки комментариев на rutube.ru.
+Расширение для Firefox, которое скрывает блоки комментариев на rutube.ru.
 
 ## Установка
 
-**Firefox:**
+**Firefox:** [Расширение доступно для установки на официальном сайте Mozilla](https://addons.mozilla.org/ru/firefox/addon/rutube-no-comments/)
 
-(https://addons.mozilla.org/ru/firefox/addon/rutube-no-comments/)[Расширение доступно для установки на официальном сайте Mozilla]
-
-**Chrome**
-
-TODO.
+**Chrome:** TODO
 
 ## Использование
 
